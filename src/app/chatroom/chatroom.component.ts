@@ -11,13 +11,16 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
-  username = 'username';
+  username = '';
+  getUserName = JSON.parse(localStorage.getItem('user').toString())
   message = '';
   messages = [];
 
   constructor(private http: HttpClient, public accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.username = this.getUserName.username;
+
     Pusher.logToConsole = true;
 
     var pusher = new Pusher('d75b346e98c76eee2887', {
