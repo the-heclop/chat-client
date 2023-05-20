@@ -1,0 +1,28 @@
+<div class="chatbody">
+  <div class="container" >
+    <div *ngFor="let msg of messages; let i = index " class="bubbleWrapper">
+      <div class="inlineContainer">
+        <img class="inlineIcon" src="https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png">
+        <div class="ownBubble own">
+          {{msg.message}}
+        </div>
+      </div><span class="other">{{msg.username}} {{msg.timeStamp}}</span>
+    </div>
+    <div class="bubbleWrapper">
+      <div class="inlineContainer other">
+        <img class="inlineIcon" src="https://www.pinclipart.com/picdir/middle/205-2059398_blinkk-en-mac-app-store-ninja-icon-transparent.png">
+        <div class="otherBubble other">
+        The first rule of being a ninja is, 'Do no harm.'
+        </div>
+      </div><span class="other">08:55</span>
+    </div>
+  </div>
+
+  <div class="container fixed-bottom">
+    <div class="input-group mb-3">
+      <input [(ngModel)]="message" type="text" class="form-control" placeholder="your message here" aria-label="Type your message here" aria-describedby="button-addon2">
+      <button (click)="send()" class="btn btn-outline-secondary" type="submit" id="button-addon2">Send</button>
+    </div>
+  </div>
+</div>
+

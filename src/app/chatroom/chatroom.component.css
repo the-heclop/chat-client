@@ -1,4 +1,7 @@
-
+.chatbody {
+  background: linear-gradient( #3e0b55, #0c1073);
+  height: 100vh;
+}
 
 * {
   font-family: 'Avenir';

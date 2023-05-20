@@ -11,38 +11,37 @@ import { User } from './_models/user';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  currentUser$: Observable<User | null> = of(null);
-  username = 'username';
-  message = '';
-  messages = [];
+export class AppComponent {
+  // username = 'username';
+  // message = '';
+  // messages = [];
 
-  constructor(private http: HttpClient, public accountService: AccountService) { }
+  // constructor(private http: HttpClient, public accountService: AccountService) { }
 
-  ngOnInit(): void {
-    Pusher.logToConsole = true;
+  // ngOnInit(): void {
+  //   Pusher.logToConsole = true;
 
-    var pusher = new Pusher('d75b346e98c76eee2887', {
-      cluster: 'mt1'
-    });
+  //   var pusher = new Pusher('d75b346e98c76eee2887', {
+  //     cluster: 'mt1'
+  //   });
 
-    var channel = pusher.subscribe('chat');
-    channel.bind('message',  (data) => {
-      this.messages.push(data);
-    });
+  //   var channel = pusher.subscribe('chat');
+  //   channel.bind('message',  (data) => {
+  //     this.messages.push(data);
+  //   });
 
-  }
+  // }
 
-  send(): void {
-    let timestamp = new Date().toLocaleTimeString();
-    this.http.post('https://localhost:7189/api/chat/messages', {
-      username: this.username,
-      message: this.message,
-      timeStamp: timestamp
-    }).subscribe( () =>
-      this.message = ''
-    );
-  }
+  // send(): void {
+  //   let timestamp = new Date().toLocaleTimeString();
+  //   this.http.post('https://localhost:7189/api/chat/messages', {
+  //     username: this.username,
+  //     message: this.message,
+  //     timeStamp: timestamp
+  //   }).subscribe( () =>
+  //     this.message = ''
+  //   );
+  // }
 
 
 

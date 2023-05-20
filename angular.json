@@ -29,7 +29,9 @@
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/main.js"
+            ]
           },
           "configurations": {
             "production": {

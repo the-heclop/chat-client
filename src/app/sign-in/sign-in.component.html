@@ -1,1 +1,13 @@
-<p>sign-in works!</p>
+<div class="container-body">
+  <div class="login-box">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="login()" >
+      <label>Username</label>
+      <input formControlName="username" type="text"  />
+      <label for="password">Password</label>
+      <input formControlName="password" type="password" id="password" name="password" required />
+      <input type="submit" value="Login" />
+    </form>
+  </div>
+</div>
+
