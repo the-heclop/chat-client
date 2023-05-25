@@ -1,6 +1,20 @@
 # ChatClient
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+This application uses Pusher websocket API with ASP.NET web API controller to create a real time chatroom.
+
+Real time chatroom that will allow multiple users to enter and send messages using Websockets
+
+# Requirements
+
+* [x] Chatroom Ui for user to type a message and send for all users to see.
+* [x] By pressing clicking on the send button the text will be displayed in the chat box alongside his username.
+* [x] Timestamp when the user enters a new message in the chat under their message. 
+* [x] USer will be prompted to login and the username will be stored.
+* [x] User can see an input field where he can type a new message.
+* [x] The messages will be visible to all the Users that are in the chat app (using WebSockets).
+* [ ] Announce when a new user enters the chatroom.
+* [ ] Hyperlink to display when user put a web link in a message.
+* [ ] Add own icon image.
 
 ## Development server
 
