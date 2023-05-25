@@ -11,19 +11,14 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
-  username = '';
-  getUserName = JSON.parse(localStorage.getItem('user').toString())
   message = '';
   messages = [];
 
   constructor(private http: HttpClient, public accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.username = this.getUserName.username;
 
-    Pusher.logToConsole = true;
-
-    var pusher = new Pusher('d75b346e98c76eee2887', {
+    var pusher = new Pusher('your-key', {
       cluster: 'mt1'
     });
 
@@ -37,7 +32,7 @@ export class ChatroomComponent implements OnInit {
   send(): void {
     let timestamp = new Date().toLocaleTimeString();
     this.http.post('https://localhost:7189/api/chat/messages', {
-      username: this.username,
+      username: this.accountService.userString,
       message: this.message,
       timeStamp: timestamp
     }).subscribe( () =>

@@ -1,4 +1,6 @@
-
+.validName {
+  color: rgb(212, 42, 19);
+}
 
 .container-body {
   background: linear-gradient( #3e0b55, #0c1073);

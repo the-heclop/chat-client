@@ -1,6 +1,6 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../_services/account.service';
-import { FormGroup, FormControl,  ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormControl,  ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,26 +10,21 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
   loginForm = new FormGroup({
-    username: new FormControl(''),
+    username: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
     password: new FormControl(''),
   });
-     username = '';
 
     constructor(public accountService: AccountService, private router: Router ) { }
 
     ngOnInit(): void {}
 
-    login() {
-      this.accountService.login(this.loginForm.value).subscribe({
-        next: () => {
-          alert('Login successful');
-          this.loginForm.reset();
-          const user = JSON.parse(localStorage.getItem('user').toString());
-          this.username = user.username;
-          this.router.navigate(['/chat']);
-        },
-        error: error => alert('Invalid login')
-      })
+
+    currentUser() {
+      if (this.loginForm.valid) {
+        this.accountService.setUser(this.loginForm.value.username);
+        this.router.navigate(['/chat']);
+      }
     }
+
 
 }
